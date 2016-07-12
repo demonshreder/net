@@ -1,31 +1,45 @@
 var express = require('express');
 var router = express.Router();
 var passwordless = require('passwordless');
+//MongoDB
+var MongoClient = require('mongodb').MongoClient
+var assert = require('assert');
+// Connection URL
+var url = 'mongodb://localhost/mydb';
 
-/* GET users listing. */
-router.get('/super', function(req, res, next) {
-  res.send('respond with a resource');
+
+//routes
+router.get('/super', function (req, res, next) {
+	res.send('respond with a resource');
 });
 
-router.post('/sendtoken', 
+router.post('/sendtoken',
 	passwordless.requestToken(
 		// Simply accept every user
-		function(user, delivery, callback) {
-			callback(null, user);
-			// usually you would want something like:
-			// User.find({email: user}, callback(ret) {
-			// 		if(ret)
-			// 			callback(null, ret.id)
-			// 		else
-			// 			callback(null, null)
-			// })
-		},{ failureRedirect: '/' }),
-	function(req, res) {
-  		res.redirect('/');
-});
+		function (user, delivery, callback) {
+			// callback(null, user);
+			MongoClient.connect(url, function (err, db) {
+				assert.equal(null, err);
+				db.collection('users').findOne({ email: user },
+					function (err, document) {
+						if (document == null) {
+							var c = db.collection('users').insertOne({ email: user });
+							assert.equal(1, c.insertedCount);
+							callback(null, user)
+						}
+						else{
+						callback(null, user);
+						}
+						db.close();
+					});
+			});
+		}, { failureRedirect: '/' }),
+	function (req, res) {
+		res.redirect('/');
+	});
 
 router.get('/logout', passwordless.logout(),
-    function(req, res) {
+    function (req, res) {
         res.redirect('/');
-});
+	});
 module.exports = router;
