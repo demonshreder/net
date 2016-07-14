@@ -12,6 +12,7 @@ var TokenMongoStore = require('passwordless-mongostore');
 var SessionMongoStore = require('connect-mongo')(expressSession);
 var email = require("emailjs");
 var process = require('process');
+var csrf = require('csurf');
 //Routes
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -69,10 +70,9 @@ app.use(expressSession({
   })
 }));
 app.use(express.static(path.join(__dirname, 'public')));
-
-//Passwordless middleware
 app.use(passwordless.sessionSupport());
 app.use(passwordless.acceptToken({ successRedirect: '/' }));
+app.use(csrf({cookie:true}));
 
 //Routes
 app.use('/', routes);

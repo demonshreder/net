@@ -1,3 +1,13 @@
 users
 - username
 - email
+
+
+mail
+- email
+- mail
+    - read
+    - sender
+    - subject
+    - body
+    - time

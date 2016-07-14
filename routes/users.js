@@ -1,12 +1,10 @@
 var express = require('express');
 var router = express.Router();
 var passwordless = require('passwordless');
-//MongoDB
 var MongoClient = require('mongodb').MongoClient
 var assert = require('assert');
 // Connection URL
 var url = 'mongodb://localhost/mydb';
-
 
 //routes
 router.get('/super', function (req, res, next) {

@@ -1,8 +1,20 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+body, button, input, select, textarea{
+  font-family: "Open Sans"
 }
-
-a {
-  color: #00B7FF;
+.nav{
+  background-color:#1c1c1c;
+  border-bottom: 1px solid;
+  border-bottom-color: #ababab;
+  /*margin-bottom: 15px;*/
+}
+#menu{
+  padding-top:15px;
+ background-color:#1c1c1c;
+  border-right: 1px solid;
+  border-right-color: #ababab;
+  border-left: 1px solid;
+  border-left-color: #ababab;
+}
+.column{
+  padding:0px;
 }

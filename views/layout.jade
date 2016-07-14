@@ -2,6 +2,14 @@ doctype html
 html
   head
     link(rel='stylesheet', href='/stylesheets/main.css')
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet")
+    link(rel='stylesheet', href='/stylesheets/style.css')
     block head
-  body.has-text-centered.is-bold
+  body.has-text-centered
+      nav.nav
+        .nav-left
+          .nav-item 1337|Protocol
+        .nav-right
+          a.nav-item Profile
+          a.nav-item Logout
     block content
