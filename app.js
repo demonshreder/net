@@ -13,14 +13,17 @@ var SessionMongoStore = require('connect-mongo')(expressSession);
 var email = require("emailjs");
 var process = require('process');
 var csrf = require('csurf');
-//Routes
-var routes = require('./routes/index');
-var users = require('./routes/users');
+var busy = require('busy');
+
+
+// Environment Variables
+var yourEmail = process.env.NODE_MAIL;
+var yourPwd = process.env.NODE_MAIL_PASS;
+var sessionSecret = process.env.NODE_SECRET;
+
 //Email,MongoDB Setup
 var pathToMongoDb = 'mongodb://localhost/mydb';
 var host = 'http://localhost:3000/';
-var yourEmail = process.env.NODE_MAIL;
-var yourPwd = process.env.NODE_MAIL_PASS;
 var yourSmtp = 'smtp.gmail.com';
 var smtpServer = email.server.connect({
   user: yourEmail,
@@ -28,6 +31,7 @@ var smtpServer = email.server.connect({
   host: yourSmtp,
   ssl: true
 });
+
 
 // Setup of Passwordless
 passwordless.init(new TokenMongoStore(pathToMongoDb));
@@ -61,7 +65,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(expressSession({
-  secret: 'Allahu akbar muhahaahhaa',
+  secret: sessionSecret,
   saveUninitialized: false,
   resave: false,
   store: new SessionMongoStore({
@@ -74,9 +78,11 @@ app.use(passwordless.sessionSupport());
 app.use(passwordless.acceptToken({ successRedirect: '/' }));
 app.use(csrf({cookie:true}));
 
+
 //Routes
-app.use('/', routes);
-app.use('/users', users);
+app.use('/', require('./routes/index'));
+app.use('/users', require('./routes/users'));
+app.use('/mail', require('./routes/mail'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

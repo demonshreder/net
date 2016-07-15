@@ -12,4 +12,18 @@ html
         .nav-right
           a.nav-item Profile
           a.nav-item Logout
-    block content
+      .columns
+        .column.is-2#menu
+          aside.menu
+            p.menu-label General
+          ul.menu-list
+            li 
+              a(href="/mail") Mail
+            li Internet
+            li System
+            li
+        .column.is-8
+          #play(style="width:100%;height:600px;background-color:red;")
+          block content
+        .column.is-2#menu
+      
