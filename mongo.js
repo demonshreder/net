@@ -8,34 +8,37 @@ var url = 'mongodb://localhost:27017/mydb';
 // Use connect method to connect to the Server
 MongoClient.connect(url, function (err, db) {
     assert.equal(null, err);
-    db.collection('mail').insertOne({
-        email: 'sskamalavelan@gmail.com',
-        mail: [{
-            read: false,
-            sender: 'allah@akbar.com',
-            subject: 'Allahu Akabar',
-            body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in arcu eget lacus lacinia suscipit quis at sem. Vivamus ornare risus ut lobortis hendrerit. Etiam ipsum dolor, pharetra ac hendrerit sed, sodales sit amet dui. Integer fermentum ligula enim, non maximus lectus porttitor ut. Donec mauris nisi, eleifend rhoncus orci eget, malesuada pretium dolor. Cras est dolor, lacinia ac turpis non, tempor dignissim purus. Mauris luctus nunc ut consectetur tempor. Nam non congue nunc. Quisque nec posuere augue, eu lacinia ipsum. Maecenas ipsum tellus, vehicula eu mauris quis, sagittis accumsan ligula. Suspendisse eget sollicitudin nisl. Curabitur placerat eleifend fermentum. Nunc felis ex, iaculis non arcu eget, eleifend bibendum nisi. Phasellus vestibulum dictum lobortis. Cras vehicula vestibulum viverra. Donec vel arcu ut eros pharetra tempus.',
-            time: new Date(),
+    db.collection('mail').insertMany([{
 
+        sender: 'rajini@kabali.com',
+        receiver: 'sskamalavelan@gmail.com',
+        time : Date.now(),
+        read: false,
+        subject: 'KABALI DAAA!!!',
+        body: 'Kabali is an upcoming 2016 Indian Tamil-language gangster-drama film written and directed by Pa. Ranjith.[4] The film stars Rajinikanth as the title character, whilst Taiwanese actor Winston Chao, Radhika Apte, Dhansika, Dinesh Ravi, Kalaiyarasan, and John Vijay star in other pivotal roles. Principal photography for the film began on 21 August 2015 in Chennai. While filming mostly occurred in Malaysia, smaller scenes were shot in Bangkok and Hong Kong.[5][6][7][8] The film is slated for release on 22 July 2016.[9]'
+
+    }, {
+            sender: 'node@js.org',
+            receiver: 'sskamalavelan@gmail.com',
+            time : Date.now(),
+            read: true,
+            subject: "Async IO bitches",
+            body: 'In software development, Node.js is an open-source, cross-platform runtime environment for developing server-side Web applications. Although Node.js is not a JavaScript framework,[3] many of its basic modules are written in JavaScript, and developers can write new modules in JavaScript. The runtime environment interprets JavaScript using Googles V8 JavaScript engine.Node.js has an event-driven architecture capable of asynchronous I/O. These design choices aim to optimize throughput and scalability in Web applications with many input/output operations, as well as for real-time Web applications (e.g., real-time communication programs and browser games).[4]The Node.js distributed development project, governed by the Node.js Foundation,[5] is facilitated by the Linux Foundations Collaborative Projects program.[6]'
         }, {
-                read: true,
-                sender: 'rajini@superstar.com',
-                subject: 'KABALI DAAA',
-                body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus fringilla, lectus quis pulvinar blandit, nibh mi porta lacus, ut scelerisque tellus urna ut risus. Integer consectetur enim condimentum dolor auctor rhoncus. Nullam non tempor velit, et pulvinar turpis. Proin cursus a arcu ut sodales. Aenean vel pharetra diam, eget finibus nunc. Proin iaculis mauris sapien, quis rhoncus felis mollis in. Fusce ut dui vel est facilisis egestas. Cras a eros semper felis euismod venenatis nec sit amet orci. Sed vulputate odio id tempor commodo. Phasellus ac purus nibh. Aliquam posuere lacus ut sem sodales luctus. Mauris ultricies justo vestibulum erat luctus bibendum. Aenean vestibulum venenatis ipsum, eu sollicitudin sem dignissim ut.",
-                time: new Date()
-            },
-            {
-                read: false,
-                sender: 'node@js.com',
-                subject: 'Async I/O bitches',
-                body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut venenatis libero. Fusce metus sem, semper vitae dolor at, fermentum mollis nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque condimentum laoreet quam, id facilisis tellus imperdiet eget. Pellentesque quis lorem tellus. Phasellus sodales felis posuere odio tristique, ac lacinia orci pretium. Duis non tempor velit. Etiam sit amet purus ac leo faucibus placerat. Praesent pretium venenatis ligula, sit amet sollicitudin nisi sodales sed. Suspendisse non ligula ligula. Quisque diam lectus, iaculis faucibus consequat vel, volutpat cursus orci. Curabitur dictum ac arcu vel ultrices. Praesent non nunc rutrum, egestas velit iaculis, mattis lorem.",
-                time: new Date()
-            }
-        ]
-    }, function (err, documents) {
-        console.log(documents);
-        db.close();
-    });
+            sender: 'games@browser.com',
+            receiver: 'sskamalavelan@gmail.com',
+            time : Date.now(),
+            read: false,
+            subject: "HTML5 FTW!!!",
+            body: 'Browser games are often free-to-play and do not require any client software to be installed apart from a web browser or browser plug-in. In some cases a game may be free, but charge for extra in-game features. Multiplayer browser games have an additional focus on social interaction, either between several players or on a massive scale. Due to the accessibility of browser games, they are often played in more frequent, shorter sessions compared to traditional computer games.[4] Since browser games run isolated from hardware in a web browser, they can run on many different operating systems without having to be ported to each platform.[5]'
+        }],
+        function (err, data) {
+            console.log(data);
+           
+        }
+    );
+     db.close();
+
 
 
 });

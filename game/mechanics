@@ -1,11 +1,63 @@
+Game over
+- Caught by the govt.
+=============================================
 Ways to earn money
 - Job
-- Steal
+- Hack
     - Banks
     - Accounts
     - Stock Market
     - Hijack Transactions
-- Sell
+- Sell computer parts, loot, etc
 - Services
-- Software
-
+    - Cryptocurrency mining
+    - 
+===========================================
+Software availability
+- Store
+- OSS
+- Markets
+- Code hosting sites
+- Salvaged from hacked boxes
+============================================
+Hacking
+- Determine identity
+    - IP Address, Stack, System, Location, Owner, Contents, Expected consequences
+    - Port scans (manual then automated)
+    - Digital fingerprint (logs, public sites, honeypots, baits)
+    - Follow trails (compromised servers, routes, packet sniffing, header intrusion etc)
+- Determine vulnerability
+    - Version based exploits
+    - Any technique
+- Execute
+    - Create scripts (Drag n Drop)
+    - Compile
+    - Use a medium
+    - Run or Deliver
+===============================================
+Bounty
+- Damage caused + cost of attacks defended * notoriety
+=============================================
+Loot from hacking
+- IP address, exploits, code blocks, source code, scripts, softare, money,
+- _Everything_ stored on the boxes
+==============================================
+Coding
+- Need script parts or source code
+- Source code
+    - Minting plates for program
+    - Consists of few unique and many generic code block
+- Scripts
+    - Pre written stuff that can be used instantly
+    - Compiled from source code
+- Code block
+    - Language specific
+    - Used to make source code
+    - Differs on function
+        - Loops - for, while, do while
+        - Methods
+        - Libs
+- Compilation
+    - Depends on resources and programming language
+    - Adds bugs and vulnerabilities
+    - Adds time factor to making scripts

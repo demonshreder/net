@@ -25,8 +25,8 @@ router.post('/sendtoken',
 							assert.equal(1, c.insertedCount);
 							callback(null, user)
 						}
-						else{
-						callback(null, user);
+						else {
+							callback(null, user);
 						}
 						db.close();
 					});

@@ -64,7 +64,7 @@ var busyCheck = busy();
 //Middlewares Init
 app.use(function(req, res, next) {
     if (busyCheck.blocked) {
-        res.send(503, "I'm busy right now, sorry.");
+        res.status(503).send("I'm busy right now, sorry.");
     } else {
         next();
     }
