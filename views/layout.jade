@@ -2,42 +2,12 @@ doctype html
 html
   head
     link(rel='stylesheet', href='/stylesheets/main.css')
-    link(href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet")
+    link(href="https://fonts.googleapis.com/css?family=Anonymous+Pro" rel="stylesheet")
     link(rel='stylesheet', href='/stylesheets/style.css')
     block head
-  body.has-text-centered
-      nav.nav
-        .nav-left
-          .nav-item 1337|Protocol
-        .nav-right
-          a.nav-item Profile
-          a.nav-item(href="/logout") Logout
-      .columns
-        .column.is-1#menu
-          aside.menu
-            p.menu-label General
-          ul.menu-list
-            li(onclick="mail()") 
-              a(id="menuMail") Mail
-            li(onclick="display()")
-              a Internet
-            li 
-              a System
-            li 
-              a System
-        .column.is-9
-          #play
-            block content
-        .column.is-2#menu
-          h1(class="title is-3") demonshreder
-          hr
-          h1(class="title is-3") $1,000,000
-          p Money
-          hr
-          h1(class="title is-3") $0
-          p Bounty
-          hr
-          p Active Tasks
-      script(src='javascripts/vue.js')
-      script(src='javascripts/ajax.js')
-      block script
+  body
+    #play
+      block content
+    script(src='javascripts/vue.js')
+    script(src='javascripts/ajax.js')
+    block script

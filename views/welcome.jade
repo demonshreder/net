@@ -2,8 +2,14 @@ extends layout
 block head
   title 1337 Protocol
 block content
-  //- p Sexy and you know it
-  //- script(src='http://code.jquery.com/jquery-3.1.0.min.js')
+  #term
+    #screen 
+      p(v-for="hue in screen") {{ hue.text }}
+    p >
+      input.input(autofocus type="text" v-model="message" v-on:keyup.enter="command")
+
+
+
 block script  
   script(src='javascripts/welcome.js')
 
