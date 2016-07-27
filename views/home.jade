@@ -1,0 +1,20 @@
+extends layout
+block head
+  title 1337 Protocol
+block content
+  input(type="hidden" name="_csrf" value="#{csrfToken}")
+  #term
+    #screen
+      pre
+      pre    __________________    ____            __                  __
+      pre   <  /__  /__  /__  /  / __ \_________  / /_____  _________  / /
+      pre   / / /_ < /_ <  / /  / /_/ / ___/ __ \/ __/ __ \/ ___/ __ \/ / 
+      pre  / /___/ /__/ / / /  / ____/ /  / /_/ / /_/ /_/ / /__/ /_/ / /  
+      pre /_//____/____/ /_/  /_/   /_/   \____/\__/\____/\___/\_____/_/   
+                                                                      
+      p(v-for="hue in screen") {{ hue.text }}
+    p >
+      input.input(autofocus type="text" v-model="message" v-on:keyup.enter="command")
+
+block script  
+  script(src="javascripts/home.js")

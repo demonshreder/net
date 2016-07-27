@@ -7,8 +7,6 @@ var cookieParser = require('cookie-parser');
 var expressSession = require('express-session');
 var bodyParser = require('body-parser');
 var app = express();
-var passwordless = require('passwordless');
-var TokenMongoStore = require('passwordless-mongostore');
 var SessionMongoStore = require('connect-mongo')(expressSession);
 var email = require("emailjs");
 var process = require('process');
@@ -31,26 +29,6 @@ var smtpServer = email.server.connect({
   host: yourSmtp,
   ssl: true
 });
-
-
-// Setup of Passwordless
-passwordless.init(new TokenMongoStore(pathToMongoDb));
-passwordless.addDelivery(
-  function (tokenToSend, uidToSend, recipient, callback) {
-    // Send out token
-    smtpServer.send({
-      text: 'Hello!\nYou can now access your account here: '
-      + host + '?token=' + tokenToSend + '&uid=' + encodeURIComponent(uidToSend),
-      from: yourEmail,
-      to: recipient,
-      subject: 'Token for ' + host
-    }, function (err, message) {
-      if (err) {
-        console.log(err);
-      }
-      callback(err);
-    });
-  });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -84,8 +62,6 @@ app.use(expressSession({
   })
 }));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(passwordless.sessionSupport());
-app.use(passwordless.acceptToken({ successRedirect: '/' }));
 app.use(csrf({cookie:true}));
 
 

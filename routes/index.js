@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-var passwordless = require('passwordless');
 var MongoClient = require('mongodb').MongoClient
 var assert = require('assert');
 // Connection URL
@@ -12,7 +11,7 @@ router.get('/', function (req, res, next) {
     res.render('welcome', { user: req.user });
   }
   else {
-    res.render('index', { user: req.user, csrfToken: req.csrfToken() });
+    res.render('home', { user: req.user, csrfToken: req.csrfToken() });
   }
 });
 
