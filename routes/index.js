@@ -8,9 +8,9 @@ var url = process.env.DB_URL
 
 // routes
 router.get('/', function (req, res, next) {
-  if (req.user != null) {
-    res.render('welcome', { user: req.user })
-  }else {
+  if (req.session.user != null) {
+    res.render('welcome', { user: req.session.user })
+  } else {
     res.render('home', { user: req.user, csrfToken: req.csrfToken() })
   }
 })

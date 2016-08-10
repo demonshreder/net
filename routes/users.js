@@ -34,7 +34,8 @@ router.post('/register', function (req, res, next) {
           bcrypt.hash(postPass, salt, function (err, hash) {
             if (err) { res.status(500).send('Error occurred, try again') }
             db.collection('users').insertOne({username: postUser, password: hash}, function () {
-              res.send('User created successfully')
+              req.session.user = postUser
+              res.send('SUCCESS')
             })
           })
         })
@@ -44,26 +45,42 @@ router.post('/register', function (req, res, next) {
 })
 
 router.post('/login', function (req, res) {
-  var username = req.body.username
-  var password = req.body.password
-  MongoClient.connect(url, function (err, db) {
+  /** login command
+  * Checks if the username exists, then compares
+  * the password and logs in if correct, else
+  * returns an error
+  */
+  var postUser = req.body.username
+  var postPass = req.body.password
+  MongoClient.connect(url, function (err, db) { // DB Code Handling
     assert.equal(null, err)
-    var userObj = db.users.findOne({ username: username })
-
-    if (userObj) {
-      req.session.regenerate(function () {
-        req.session.user = userObj.username
-        res.send('authenticated')
-      })
-    } else {
-      res.send('failed')
-    }
+    db.collection('users').findOne({ username: postUser }, function (err, userObj) {
+      if (err) { res.send('Error occurred, try again') }
+      if (userObj) { // Check if username exists
+        bcrypt.compare(postPass, userObj.password, function (err, result) {
+          if (err) { res.send('Error occurred, try again') }
+          if (result) {
+            req.session.regenerate(function (err) {
+              req.session.user = postUser
+              if (err) { res.send('Error occurred, try again') }
+              res.send('SUCCESS')
+            })
+          } else {
+            res.status(200).send('Password incorrect.')
+          }
+        })
+      } else {
+        res.status(200).send('Password incorrect.')
+      } // Else end
+    })
   })
 })
 
-router.get('/logout',
-  function (req, res) {
+router.get('/logout', function (req, res) {
+  req.session.destroy(function (err) {
+    if (err) { res.redirect('/users/logout') }
     res.redirect('/')
   })
+})
 
 module.exports = router
