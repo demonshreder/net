@@ -4,6 +4,7 @@ block head
 block content
   #term
     #screen 
+      p Welcome #{user}
       p(v-for="hue in screen") {{ hue.text }}
     p >
       input.input(autofocus type="text" v-model="message" v-on:keyup.enter="command")
@@ -11,5 +12,7 @@ block content
 
 
 block script  
+  script(src='socket.io/socket.io.js')
   script(src='javascripts/welcome.js')
+  
 

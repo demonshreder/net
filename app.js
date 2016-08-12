@@ -12,6 +12,10 @@ var email = require('emailjs')
 var process = require('process')
 var csrf = require('csurf')
 var busy = require('busy')
+var io = require('socket.io')(1337)
+io.on('connection', function (socket) {
+  console.log('a user connected')
+})
 
 // Environment Variables
 var yourEmail = process.env.NODE_MAIL

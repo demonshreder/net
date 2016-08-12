@@ -1,3 +1,13 @@
+// var socket = io.connect('http://localhost:3000')
+// socket.on('news', function (data) {
+//   console.log(data)
+//   socket.emit('connection', { my: 'data' })
+// })
+// var socket = io.connect('http://localhost:1337')
+var socket = io()
+socket.on('cool', function(data) {
+  console.log(data)
+})
 var exampleVM2 = new Vue({
   el: '#term',
   data: {
