@@ -8,8 +8,9 @@ var process = require('process')
 var url = process.env.DB_URL
 
 // routes
-router.post('/super', function (req, res, next) {
-  res.send(req.body._csrf)
+router.get('/super', function (req, res, next) {
+  // req.session.super = 'sexy'
+  res.send(req.session)
 })
 router.post('/register', function (req, res, next) {
   /** Register command
@@ -60,11 +61,11 @@ router.post('/login', function (req, res) {
         bcrypt.compare(postPass, userObj.password, function (err, result) {
           if (err) { res.send('Error occurred, try again') }
           if (result) {
-            req.session.regenerate(function (err) {
-              req.session.user = postUser
-              if (err) { res.send('Error occurred, try again') }
-              res.send('SUCCESS')
-            })
+            // req.session.regenerate(function (err) {
+            req.session.user = postUser
+            if (err) { res.send('Error occurred, try again') }
+            res.send('SUCCESS')
+          // })
           } else {
             res.status(200).send('Password incorrect.')
           }

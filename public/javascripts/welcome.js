@@ -5,8 +5,8 @@
 // })
 // var socket = io.connect('http://localhost:1337')
 var socket = io()
-socket.on('cool', function(data) {
-  console.log(data)
+socket.on('screen', function (data) {
+  exampleVM2.screen.push({text: data})
 })
 var exampleVM2 = new Vue({
   el: '#term',
