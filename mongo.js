@@ -18,12 +18,3 @@ co(function * () {
 }).catch(function (err) {
   console.log(err.stack)
 })
-
-co(function * () {
-  var salt = yield bcrypt.genSalt(10, function (err, sexy) {
-    if (err) {}
-    return Promise.resolve(sexy)
-    // console.log(sexy)
-  })
-  console.log(salt)
-})

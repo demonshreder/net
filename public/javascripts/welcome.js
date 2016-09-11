@@ -18,7 +18,7 @@ var exampleVM2 = new Vue({
     command: function () {
       var text = this.message.trim()
       if (text) {
-        this.screen.push({ text: text })
+        socket.emit('terminal', text)
         this.message = ''
         var objDiv = document.getElementById('screen')
         objDiv.scrollTop = objDiv.scrollHeight

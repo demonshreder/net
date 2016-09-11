@@ -10,7 +10,6 @@ var express = require('express')
 var path = require('path')
 var favicon = require('serve-favicon')
 var logger = require('morgan')
-var cookieParser = require('cookie-parser')
 var expressSession = require('express-session')
 var bodyParser = require('body-parser')
 var app = express()
@@ -18,14 +17,15 @@ var email = require('emailjs')
 var process = require('process')
 var csrf = require('csurf')
 var busy = require('busy')
+var assert = require('assert')
 var SessionMongoStore = require('connect-mongo')(expressSession)
+var cookieParser = require('cookie-parser')
 /**
  * Get port from environment and store in Express.
  */
 
 var port = normalizePort(process.env.PORT || '3000')
 app.set('port', port)
-
 
 // var session = expressSession(sessionVar)
 
@@ -80,11 +80,12 @@ var sessionVar = {
   })
 }
 
+var session = expressSession(sessionVar)
 app.use(logger('dev'))
+app.use(cookieParser())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(cookieParser())
-app.use(expressSession(sessionVar))
+app.use(session)
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(csrf({cookie: true}))
 
@@ -123,19 +124,6 @@ app.use(function (err, req, res, next) {
     error: {}
   })
 })
-/**
- * Create HTTP server.
- */
-
-var server = http.createServer(app)
-/**
- * Listen on provided port, on all network interfaces.
- */
-
-server.listen(port)
-server.on('error', onError)
-server.on('listening', onListening)
-
 
 /**
  * Normalize a port into a number, string, or false.
@@ -186,6 +174,21 @@ function onError (error) {
 }
 
 /**
+ * Create HTTP server.
+ */
+
+var server = http.createServer(app)
+
+// app.use(session)
+var io = require('socket.io')(server)
+io.use(function (socket, next) {
+  session(socket.request, socket.request.res, next)
+})
+io.on('connection', function (socket) {
+  require('./game/code/terminal')(socket)
+})
+
+/**
  * Event listener for HTTP server "listening" event.
  */
 
@@ -197,16 +200,12 @@ function onListening () {
   debug('Listening on ' + bind)
 }
 
-// app.use(session)
-var io = require('socket.io')(server)
-// io.use(function (socket, next) {
-//   session(socket.request, socket.request.res, next)
-// })
-io.on('connection', function (socket) {
-  console.log('connected')
-  // socket.on('terminal', function (socket) {
-  var piper = require('./game/code/terminal')(socket)
-  // piper()
-// })
-})
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port)
+server.on('error', onError)
+server.on('listening', onListening)
+
 module.exports = app

@@ -35,8 +35,10 @@ router.post('/register', function (req, res, next) {
           bcrypt.hash(postPass, salt, function (err, hash) {
             if (err) { res.status(500).send('Error occurred, try again') }
             db.collection('users').insertOne({username: postUser, password: hash}, function () {
-              req.session.user = postUser
-              res.send('SUCCESS')
+              db.collection('computer').insertOne({username: postUser}, function () {
+                req.session.user = postUser
+                res.send('SUCCESS')
+              })
             })
           })
         })
