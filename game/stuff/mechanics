@@ -71,7 +71,7 @@ Hacking #2 - Infiltration
 - Physical
     - Breaking in
     - SE - Appointments, fake IDs
-- Internet
+- Remote
     - Security exploits, remote vulnerabilities
     - Phishing, cookie tracing, 'poisoning' the software
     - Existing backdoors 
@@ -84,6 +84,7 @@ Hacking #3 - The hack itself
     - Crash
     - Delete
     - Infect
+    - Deface
 - Resources
     - Siphon funds
     - Use hardware over time
@@ -97,6 +98,9 @@ Hacking #3 - The hack itself
     - Favours
     - Faking information
     - Gain leverage
+- Reputation
+    - Take responsibility
+    - Leave a mark
 ===============================================
 Bounty
 - Damage caused + cost of attacks defended * notoriety
@@ -110,7 +114,7 @@ Coding
 - Source code
     - Minting plates for program
     - Consists of few unique and many generic code block
-- Scripts
+- Scripts (Compiled)
     - Pre written stuff that can be used instantly
     - Compiled from source code
     - Contain types of bugs
