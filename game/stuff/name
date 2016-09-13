@@ -1,3 +1,6 @@
+# This file is used to describe every entity related
+# to the game with a brief description of its 
+# relevance.
 ====================================================
 Websites
 ====================================================
@@ -20,7 +23,8 @@ Factions
     - Protects civilians
     - Manages bounty
     - Catches criminals        
-
+- Bait Party 
+    - Hacktivist outfit
 =====================================================
 Hardware
 =====================================================

@@ -1,3 +1,5 @@
+# This is basically a list of all things that
+# should be considered to be included in the game
 Stats
 - Money
 - Reputation
@@ -42,14 +44,27 @@ Community
 - Community
 
 Techique
-- DDoS
-- Hashing
-- SQL Injection
-- XSS
-- Bruteforce
+- Hardware & Physical
+    - Cold boot, Theft
+    - Breaking in 
+    - Electricity & EM based
+    - RF based
+    - DDoS
+    - Bruteforce
+- Software & Remote
+    - Hashing
+    - SQL Injection
+    - XSS
+    - Honey pots
+    - Password cracking
+    - Man in the middle    
 - Social Engineering
-- Honey pots
-- Password cracking
+    - Phishing
+    - Bait call, email, SMS
+    - ID Theft
+    - Coercion
+        - Appointments
+        - Contracts & Jobs
 
 Development
 - FOSS
