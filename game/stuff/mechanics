@@ -6,6 +6,17 @@ Game over
 - Caught by the govt.
 - Ran out of money
 =============================================
+Hideout
+- Meet fellow hackers
+- Store physical goods
+    - Server, desktop
+- 
+=============================================
+Tools
+- Phone or Laptop or Desktop or LiveUSB
+    - Server
+    - Cloud
+=============================================
 Hacking approaches
 - Hardware & Physical
     - Bruteforce, DDoS
@@ -53,6 +64,7 @@ Hacking #1 - Reconnaissance
     - Any technique
 - Identify attack approaches
     - Physical
+        - Bluetooth
         - IDs required, contacts to 'work'
         - Security routines, weak spots
         - Point of entry, blueprints
