@@ -1,16 +1,17 @@
 # This file is used to describe every entity related
 # to the game with a brief description of its 
-# relevance.
+# relevance. 
+# For ease of use, hacker here means security 
+# researcher.
 ====================================================
 Characters
 ====================================================
-- Placeholder
+- Arima | pid1
     - Protagonist
-    - FOSS hacker turned hacker
-- Akka
+    - FOSS dev turned hacker
+- Akka | cron
     - Placeholder's elder sister
     - College dropout, independent security researcher
-    - Distinguished member of the 
 ====================================================
 Websites
 ====================================================
@@ -24,7 +25,6 @@ Factions
     - Official front for all hackers
     - Accepts 'jobs'
 - cr0n
-    - Started by Placeholder and Akka
     - Educational hacker group
     - Teaches kids about different aspects of CS
 - Salvation Army
