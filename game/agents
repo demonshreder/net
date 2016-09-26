@@ -1,0 +1,71 @@
+Actions
+==========
+Player specific
+    - Difficulty
+    - Inventory
+    - Reputation
+    - Skill Tree
+
+Human agents
+    - Identity
+        - Location, Race, Income
+        - Likes and dislikes
+        - Job
+        - Personality traits
+            - Aggressive, Passive
+            - Stands on issues
+    - Digital Footprint
+        - Social Media Accounts
+        - Email Accounts
+        - Banking, Social Security, Tax
+        - Medical
+        - Visited sites
+            - Email subscription
+            - Membership
+    - Assets
+        - Computer, Server, Phone
+        - IoT Devices - Car, Security
+            - Personal Assistant
+        - Cards, Electronic devices
+    - Relationships
+        - Friends, Family, Acquaintances
+        - Affinity level
+    - Dialogues
+    - Loot generation
+    - Events
+        - Met player first time
+    - Technical competence
+
+Digital agents
+    - Specs
+        - Source availability
+        - Known exploits
+    - User
+        - Technical demographic
+        - Entity status - individual, organization, automated
+    - Used softwares
+    - Actions available
+    - Stored information
+    - Loot generation
+    - Events
+
+Human to Human
+    - Communication
+        - Speech, mail, SMS (Ambient dialogues)
+        - Transfer of information about player
+    - Transfer of objects
+
+Human to Digital
+    - On or off
+    - Object specific actions
+    - Transfer of informaiton
+
+Digital to Human
+    - Transfer of information
+
+Digital to Digital
+    - Transfer of information
+    - Commands
+
+Interaction network between all agents
+

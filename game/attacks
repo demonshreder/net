@@ -1,0 +1,29 @@
+Password Guessing
+=================
+Prerequisite information
+    - Target email
+    - Target alternate email
+    - Target registered mobile number
+    - Access to relevant personal information from target
+        - Social media
+        - Mutual friends
+        - Frequented locations
+    - Accomplice
+1. Security question
+    - Identify security quesion
+        - Wait out the wait period
+        - Access / change alternate email
+        - Lock out email(s) from accessing
+    - Social engineer the answer
+        - Ask intelligent questions
+        - Stalk social media for info
+        - Ask friends of the target
+        - Fake profile and communicate
+    - Enter the valid guesses
+2. 2FA attack
+    - Determine 2FA as SMS or TOTP
+    - Gain access to phone
+        - Gain access to unlocked mobile phone
+        - Send setup SMS
+        - Use accomplice to distract target to gain phone access
+    - Communicate / enter OTP

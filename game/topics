@@ -1,17 +1,31 @@
+# This file contains the list of Social
+# topics the game must elucidate to the 
+# gamer.
 DRM
-Privacy
+    - Free culture license
+    - EULA
+Internet Privacy
+    - If it is free, then you are the product
+    - Bubbling
+    - Ads
+    - Cookie intrusion
+Encryption
+    - Importance
+    - Government Lobby
+Censorship
+Surveillance
 Social Engineering
     - Identity Theft
     - Phone Phreaking
+    - SMS
 Password Cracking
     - Brute Force
     - Dictionary 
     - Hash Table
 Physical Attacks
-    - HDD Recovery
-    - Cold boot
-    - RAM suspend
+    - Unlocked computer
     - Random USB
 Software
-    - Exploits
-    - 
+    - Unverified source
+    - Ransomware
+    - Adware
